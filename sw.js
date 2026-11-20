@@ -1,5 +1,5 @@
 // Offline app shell: once loaded, Ulak opens without any network.
-const VERSION = 'ulak-v1';
+const VERSION = 'ulak-v2';
 const SHELL = [
   './',
   'index.html',

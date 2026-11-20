@@ -287,6 +287,10 @@ select:focus {
   margin: 0 0 18px;
 }
 
+[dir="rtl"] .wordmark {
+  text-align: right;
+}
+
 .wordmark-dot {
   color: var(--red);
 }

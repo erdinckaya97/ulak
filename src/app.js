@@ -421,7 +421,7 @@ async function renderMessages() {
     }
     const el = document.createElement('div');
     el.className = `msg ${message.dir}`;
-    el.append(document.createTextNode(message.body));
+    el.append(Object.assign(document.createElement('div'), { dir: 'auto', textContent: message.body }));
     const meta = document.createElement('div');
     meta.className = 'msg-meta';
     const time = document.createElement('time');

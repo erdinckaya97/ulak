@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="420" viewBox="0 0 1280 420" role="img" aria-label="ulak: serverless, end-to-end encrypted messaging that keeps working when the internet doesn't">
+  <rect width="1280" height="420" fill="#f3efe6"/>
+  <rect x="24" y="24" width="1232" height="372" fill="none" stroke="#1c1b17" stroke-width="2"/>
+
+  <!-- airmail edge -->
+  <g transform="translate(24 24)">
+    <clipPath id="edge"><rect width="1232" height="10"/></clipPath>
+    <g clip-path="url(#edge)">
+      <path d="M0 10 L10 0 H30 L20 10Z M40 10 L50 0 H70 L60 10Z M80 10 L90 0 H110 L100 10Z M120 10 L130 0 H150 L140 10Z M160 10 L170 0 H190 L180 10Z M200 10 L210 0 H230 L220 10Z M240 10 L250 0 H270 L260 10Z M280 10 L290 0 H310 L300 10Z M320 10 L330 0 H350 L340 10Z M360 10 L370 0 H390 L380 10Z M400 10 L410 0 H430 L420 10Z M440 10 L450 0 H470 L460 10Z M480 10 L490 0 H510 L500 10Z M520 10 L530 0 H550 L540 10Z M560 10 L570 0 H590 L580 10Z M600 10 L610 0 H630 L620 10Z M640 10 L650 0 H670 L660 10Z M680 10 L690 0 H710 L700 10Z M720 10 L730 0 H750 L740 10Z M760 10 L770 0 H790 L780 10Z M800 10 L810 0 H830 L820 10Z M840 10 L850 0 H870 L860 10Z M880 10 L890 0 H910 L900 10Z M920 10 L930 0 H950 L940 10Z M960 10 L970 0 H990 L980 10Z M1000 10 L1010 0 H1030 L1020 10Z M1040 10 L1050 0 H1070 L1060 10Z M1080 10 L1090 0 H1110 L1100 10Z M1120 10 L1130 0 H1150 L1140 10Z M1160 10 L1170 0 H1190 L1180 10Z M1200 10 L1210 0 H1230 L1220 10Z" fill="#c8381e"/>
+      <path d="M20 10 L30 0 H50 L40 10Z M100 10 L110 0 H130 L120 10Z M180 10 L190 0 H210 L200 10Z M260 10 L270 0 H290 L280 10Z M340 10 L350 0 H370 L360 10Z M420 10 L430 0 H450 L440 10Z M500 10 L510 0 H530 L520 10Z M580 10 L590 0 H610 L600 10Z M660 10 L670 0 H690 L680 10Z M740 10 L750 0 H770 L760 10Z M820 10 L830 0 H850 L840 10Z M900 10 L910 0 H930 L920 10Z M980 10 L990 0 H1010 L1000 10Z M1060 10 L1070 0 H1090 L1080 10Z M1140 10 L1150 0 H1170 L1160 10Z M1220 10 L1230 0 H1250 L1240 10Z" fill="#1f4e79"/>
+    </g>
+  </g>
+
+  <!-- wordmark -->
+  <text x="88" y="214" font-family="Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif" font-size="150" font-weight="700" letter-spacing="-4" fill="#1c1b17">ulak<tspan fill="#c8381e">.</tspan></text>
+  <text x="92" y="270" font-family="Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif" font-size="30" fill="#1c1b17">Serverless, end-to-end encrypted messaging.</text>
+  <text x="92" y="308" font-family="Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif" font-size="30" fill="#5d594f">Even when the internet is gone.</text>
+  <text x="92" y="356" font-family="ui-monospace, SF Mono, Menlo, Consolas, monospace" font-size="15" fill="#8f897b" letter-spacing="0.5">12 WORDS &#183; NO SERVER &#183; OFFLINE OUTBOX &#183; WI-FI &#183; QR &#183; MESH</text>
+
+  <!-- route between devices -->
+  <g fill="none" stroke="#1c1b17" stroke-width="2" stroke-dasharray="7 7">
+    <path d="M834 264 C 888 264, 882 170, 936 170"/>
+    <path d="M980 170 C 1036 170, 1040 274, 1096 274"/>
+  </g>
+  <g>
+    <rect x="790" y="226" width="44" height="76" rx="8" fill="#fbf9f4" stroke="#1c1b17" stroke-width="2"/>
+    <rect x="805" y="292" width="14" height="3" rx="1.5" fill="#1c1b17"/>
+    <path d="M800 244 h24 v16 h-24z" fill="#c8381e"/>
+    <path d="M800 244 l12 9 l12 -9" fill="none" stroke="#f3efe6" stroke-width="1.6"/>
+    <rect x="936" y="132" width="44" height="76" rx="8" fill="#fbf9f4" stroke="#1c1b17" stroke-width="2"/>
+    <rect x="951" y="198" width="14" height="3" rx="1.5" fill="#1c1b17"/>
+    <path d="M946 150 h24 v16 h-24z" fill="#c8381e"/>
+    <path d="M946 150 l12 9 l12 -9" fill="none" stroke="#f3efe6" stroke-width="1.6"/>
+    <rect x="1096" y="236" width="44" height="76" rx="8" fill="#fbf9f4" stroke="#1c1b17" stroke-width="2"/>
+    <rect x="1111" y="302" width="14" height="3" rx="1.5" fill="#1c1b17"/>
+    <path d="M1106 254 h24 v16 h-24z" fill="#c8381e"/>
+    <path d="M1106 254 l12 9 l12 -9" fill="none" stroke="#f3efe6" stroke-width="1.6"/>
+  </g>
+  <g font-family="ui-monospace, SF Mono, Menlo, Consolas, monospace" font-size="14" fill="#5d594f" text-anchor="middle">
+    <text x="812" y="324">you</text>
+    <text x="958" y="230">carrier</text>
+    <text x="1118" y="334">them</text>
+  </g>
+
+  <!-- stamp -->
+  <g transform="rotate(-8 1130 110)">
+    <rect x="1050" y="78" width="164" height="64" rx="6" fill="none" stroke="#c8381e" stroke-width="4"/>
+    <rect x="1058" y="86" width="148" height="48" rx="3" fill="none" stroke="#c8381e" stroke-width="1.5"/>
+    <text x="1132" y="122" text-anchor="middle" font-family="Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif" font-size="30" font-weight="700" letter-spacing="6" fill="#c8381e">ULAK</text>
+  </g>
+</svg>
