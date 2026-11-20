@@ -1,0 +1,25 @@
+{
+  "name": "ulak",
+  "version": "0.1.0",
+  "description": "Serverless, end-to-end encrypted peer-to-peer messenger. Log in with 12 words, message offline over local Wi-Fi or QR codes.",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "start": "node scripts/serve.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "p2p",
+    "messenger",
+    "e2ee",
+    "webrtc",
+    "nostr",
+    "offline",
+    "mesh",
+    "emergency",
+    "pwa"
+  ]
+}

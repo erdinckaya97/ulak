@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f3efe6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#16150f" media="(prefers-color-scheme: dark)">
+  <meta name="description" content="Serverless, end-to-end encrypted peer-to-peer messenger. Log in with 12 words. Works offline over local Wi-Fi and QR codes.">
+  <title>Ulak</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="src/app.js"></script>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-near" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M8.5 8.5a5 5 0 0 0 0 7M15.5 8.5a5 5 0 0 1 0 7M5.6 5.6a9 9 0 0 0 0 12.8M18.4 5.6a9 9 0 0 1 0 12.8"/></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M4 12l16-8-6 16-2.5-6.5z"/><path d="M11.5 13.5L20 4"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+    <symbol id="i-qr" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6"/><rect x="14" y="4" width="6" height="6"/><rect x="4" y="14" width="6" height="6"/><path d="M14 14h2v2h-2zM18 14h2M14 18h2M18 18h2v2"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+    <symbol id="i-more" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></symbol>
+  </svg>
+
+  <!-- Welcome -->
+  <section class="view view-entry" id="view-welcome" hidden>
+    <header class="entry-top">
+      <span class="stamp">ulak</span>
+      <select class="lang-select" aria-label="Language"></select>
+    </header>
+    <main class="entry">
+      <h1 class="wordmark">ulak<span class="wordmark-dot">.</span></h1>
+      <p class="tagline" data-i18n="tagline"></p>
+      <ol class="facts">
+        <li data-i18n="featureWords"></li>
+        <li data-i18n="featureE2ee"></li>
+        <li data-i18n="featureOffline"></li>
+        <li data-i18n="featureNearby"></li>
+      </ol>
+      <div class="entry-actions">
+        <button class="btn btn-primary" data-go="create" data-i18n="createAccount"></button>
+        <button class="btn" data-go="login" data-i18n="login"></button>
+      </div>
+      <p class="fineprint"><span data-i18n="aboutText"></span> <a href="https://github.com/erdinckaya97/ulak" target="_blank" rel="noopener">GitHub</a></p>
+    </main>
+  </section>
+
+  <!-- Create account -->
+  <section class="view view-entry" id="view-create" hidden>
+    <header class="entry-top">
+      <button class="link-btn" data-go="welcome">&larr; <span data-i18n="back"></span></button>
+    </header>
+    <main class="entry">
+      <div id="create-step-words">
+        <h2 data-i18n="yourWords"></h2>
+        <ol class="word-grid" id="word-grid"></ol>
+        <button class="btn btn-small" id="copy-words" data-i18n="copy"></button>
+        <p class="warning" data-i18n="wordsWarning"></p>
+        <label class="check"><input type="checkbox" id="wrote-down"> <span data-i18n="wroteThemDown"></span></label>
+        <button class="btn btn-primary" id="create-next" disabled data-i18n="continue"></button>
+      </div>
+      <form id="create-step-verify" hidden>
+        <h2 data-i18n="verifyTitle"></h2>
+        <div class="verify-row">
+          <label><span id="verify-label-a"></span><input id="verify-a" autocomplete="off" autocapitalize="none" spellcheck="false" required></label>
+          <label><span id="verify-label-b"></span><input id="verify-b" autocomplete="off" autocapitalize="none" spellcheck="false" required></label>
+        </div>
+        <label class="field"><span data-i18n="displayName"></span><input id="create-name" maxlength="40" autocomplete="nickname"><small data-i18n="displayNameHint"></small></label>
+        <label class="check"><input type="checkbox" id="create-remember" checked> <span data-i18n="rememberMe"></span></label>
+        <small class="hint" data-i18n="rememberHint"></small>
+        <p class="error" id="create-error" hidden></p>
+        <div class="row">
+          <button type="button" class="btn" id="create-back" data-i18n="back"></button>
+          <button type="submit" class="btn btn-primary" data-i18n="start"></button>
+        </div>
+      </form>
+    </main>
+  </section>
+
+  <!-- Login -->
+  <section class="view view-entry" id="view-login" hidden>
+    <header class="entry-top">
+      <button class="link-btn" data-go="welcome">&larr; <span data-i18n="back"></span></button>
+    </header>
+    <main class="entry">
+      <form id="login-form">
+        <h2 data-i18n="enterWords"></h2>
+        <textarea id="login-words" rows="4" autocomplete="off" autocapitalize="none" spellcheck="false" data-i18n-placeholder="wordsPlaceholder"></textarea>
+        <div class="login-meta"><span id="login-count"></span><span id="login-hint" class="muted"></span></div>
+        <label class="check"><input type="checkbox" id="login-remember" checked> <span data-i18n="rememberMe"></span></label>
+        <small class="hint" data-i18n="rememberHint"></small>
+        <p class="error" id="login-error" hidden></p>
+        <button type="submit" class="btn btn-primary" data-i18n="signIn"></button>
+      </form>
+    </main>
+  </section>
+
+  <!-- Messenger -->
+  <section class="view" id="view-app" hidden>
+    <aside class="sidebar">
+      <header class="side-head">
+        <button class="me" id="me-button" type="button">
+          <span class="avatar" id="me-avatar"></span>
+          <span class="me-text"><strong id="me-name"></strong><code id="me-id"></code></span>
+        </button>
+        <span class="net" id="net-status"></span>
+      </header>
+      <nav class="side-actions">
+        <button type="button" id="open-add"><svg><use href="#i-plus"/></svg><span data-i18n="addContact"></span></button>
+        <button type="button" id="open-nearby"><svg><use href="#i-near"/></svg><span data-i18n="nearby"></span></button>
+        <button type="button" id="open-settings"><svg><use href="#i-gear"/></svg><span data-i18n="settings"></span></button>
+      </nav>
+      <div class="chat-list" id="chat-list"></div>
+      <p class="carrying" id="carrying" hidden></p>
+    </aside>
+
+    <main class="chat" id="chat">
+      <div class="chat-empty" id="chat-empty"><span class="stamp stamp-large">ulak</span><p data-i18n="selectChat"></p></div>
+      <div class="chat-view" id="chat-view" hidden>
+        <header class="chat-head">
+          <button class="icon-btn only-narrow" id="chat-back" type="button" data-i18n-title="back"><svg><use href="#i-back"/></svg></button>
+          <span class="avatar" id="chat-avatar"></span>
+          <div class="chat-title">
+            <strong id="chat-name"></strong>
+            <span id="chat-status"></span>
+          </div>
+          <button class="icon-btn" id="chat-qr" type="button" data-i18n-title="giveByQr"><svg><use href="#i-qr"/></svg></button>
+          <button class="icon-btn" id="chat-safety" type="button" data-i18n-title="safetyCode"><svg><use href="#i-shield"/></svg></button>
+          <div class="menu-wrap">
+            <button class="icon-btn" id="chat-more" type="button" aria-haspopup="true"><svg><use href="#i-more"/></svg></button>
+            <div class="menu" id="chat-menu" hidden>
+              <button type="button" id="chat-rename" data-i18n="rename"></button>
+              <button type="button" id="chat-delete" class="danger" data-i18n="deleteChat"></button>
+            </div>
+          </div>
+        </header>
+        <div class="request-banner" id="request-banner" hidden>
+          <span data-i18n="requestBanner"></span>
+          <button class="btn btn-small btn-primary" id="request-accept" type="button" data-i18n="accept"></button>
+          <button class="btn btn-small" id="request-delete" type="button" data-i18n="delete"></button>
+        </div>
+        <div class="messages" id="messages" role="log" aria-live="polite"></div>
+        <form class="composer" id="composer">
+          <textarea id="composer-input" rows="1" maxlength="4000" data-i18n-placeholder="messagePlaceholder"></textarea>
+          <button class="send-btn" type="submit" data-i18n-title="send"><svg><use href="#i-send"/></svg></button>
+        </form>
+      </div>
+    </main>
+  </section>
+
+  <!-- Add contact -->
+  <dialog id="dlg-add">
+    <form method="dialog" class="dlg-head"><h3 data-i18n="addContact"></h3><button class="icon-btn" value="close"><svg><use href="#i-close"/></svg></button></form>
+    <section class="dlg-section">
+      <h4 data-i18n="yourId"></h4>
+      <div class="qr-box" id="my-qr"></div>
+      <code class="id-text" id="my-id-full"></code>
+      <p class="muted" data-i18n="shareId"></p>
+      <div class="row">
+        <button type="button" class="btn btn-small" id="copy-id" data-i18n="copy"></button>
+        <button type="button" class="btn btn-small" id="copy-link" data-i18n="copyLink"></button>
+        <button type="button" class="btn btn-small" id="share-link" data-i18n="share" hidden></button>
+      </div>
+    </section>
+    <form class="dlg-section" id="add-form">
+      <label class="field"><span data-i18n="contactId"></span><input id="add-id" autocomplete="off" autocapitalize="none" spellcheck="false" data-i18n-placeholder="contactIdPlaceholder" required></label>
+      <label class="field"><span data-i18n="contactName"></span><input id="add-name" maxlength="40" autocomplete="off"></label>
+      <p class="error" id="add-error" hidden></p>
+      <div class="row">
+        <button type="button" class="btn" id="add-scan"><svg><use href="#i-camera"/></svg><span data-i18n="scanQr"></span></button>
+        <button type="submit" class="btn btn-primary" data-i18n="add"></button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Nearby / offline -->
+  <dialog id="dlg-nearby">
+    <form method="dialog" class="dlg-head"><h3 data-i18n="nearbyTitle"></h3><button class="icon-btn" value="close"><svg><use href="#i-close"/></svg></button></form>
+    <section class="dlg-section">
+      <p data-i18n="nearbyIntro"></p>
+      <ol class="steps">
+        <li data-i18n="nearbyStep1"></li>
+        <li data-i18n="nearbyStep2"></li>
+        <li data-i18n="nearbyStep3"></li>
+      </ol>
+      <div class="row">
+        <button type="button" class="btn btn-primary" id="lan-invite" data-i18n="createInvite"></button>
+        <button type="button" class="btn" id="lan-scan-invite" data-i18n="scanInvite"></button>
+      </div>
+      <div class="lan-code" id="lan-code" hidden>
+        <p class="muted" data-i18n="showThisCode"></p>
+        <div class="qr-box" id="lan-qr"></div>
+        <div class="row">
+          <button type="button" class="btn btn-small" id="lan-copy" data-i18n="copy"></button>
+          <button type="button" class="btn btn-small btn-primary" id="lan-scan-answer" data-i18n="scanAnswer" hidden></button>
+        </div>
+      </div>
+      <h4 data-i18n="connectedNearby"></h4>
+      <ul class="lan-peers" id="lan-peers"></ul>
+    </section>
+    <section class="dlg-section">
+      <h4 data-i18n="receiveByQr"></h4>
+      <p class="muted" data-i18n="receiveByQrHint"></p>
+      <button type="button" class="btn" id="qr-receive"><svg><use href="#i-camera"/></svg><span data-i18n="scanQr"></span></button>
+    </section>
+  </dialog>
+
+  <!-- Give pending messages by QR -->
+  <dialog id="dlg-qrgive">
+    <form method="dialog" class="dlg-head"><h3 data-i18n="qrGiveTitle"></h3><button class="icon-btn" value="close"><svg><use href="#i-close"/></svg></button></form>
+    <section class="dlg-section">
+      <p class="muted" data-i18n="qrGiveHint"></p>
+      <div class="qr-box qr-large" id="give-qr"></div>
+      <p class="pager"><button type="button" class="btn btn-small" id="give-prev" data-i18n="previous"></button><span id="give-count"></span><button type="button" class="btn btn-small" id="give-next" data-i18n="next"></button></p>
+    </section>
+  </dialog>
+
+  <!-- Safety code -->
+  <dialog id="dlg-safety">
+    <form method="dialog" class="dlg-head"><h3 data-i18n="safetyTitle"></h3><button class="icon-btn" value="close"><svg><use href="#i-close"/></svg></button></form>
+    <section class="dlg-section">
+      <p class="safety-words" id="safety-words"></p>
+      <p class="muted" data-i18n="safetyHint"></p>
+    </section>
+  </dialog>
+
+  <!-- Scanner -->
+  <dialog id="dlg-scan">
+    <form method="dialog" class="dlg-head"><h3 id="scan-title"></h3><button class="icon-btn" value="close"><svg><use href="#i-close"/></svg></button></form>
+    <section class="dlg-section">
+      <div class="scanner"><video id="scan-video" playsinline muted></video><span class="scanner-frame"></span></div>
+      <p class="muted" id="scan-note"></p>
+      <label class="field"><span data-i18n="pasteCode"></span><textarea id="scan-paste" rows="3" spellcheck="false" data-i18n-placeholder="pastePlaceholder"></textarea></label>
+      <button type="button" class="btn btn-primary" id="scan-use" data-i18n="use"></button>
+    </section>
+  </dialog>
+
+  <!-- Settings -->
+  <dialog id="dlg-settings">
+    <form method="dialog" class="dlg-head"><h3 data-i18n="settings"></h3><button class="icon-btn" value="close"><svg><use href="#i-close"/></svg></button></form>
+    <form class="dlg-section" id="settings-form">
+      <label class="field"><span data-i18n="displayName"></span><input id="set-name" maxlength="40"></label>
+      <label class="field"><span data-i18n="language"></span><select class="lang-select" id="set-lang"></select></label>
+      <label class="check"><input type="checkbox" id="set-store"> <span data-i18n="storeOnRelays"></span></label>
+      <small class="hint" data-i18n="storeOnRelaysHint"></small>
+      <label class="check"><input type="checkbox" id="set-carry"> <span data-i18n="carryForOthers"></span></label>
+      <small class="hint" data-i18n="carryForOthersHint"></small>
+      <label class="field"><span data-i18n="relays"></span><textarea id="set-relays" rows="5" spellcheck="false"></textarea><small data-i18n="relaysHint"></small></label>
+      <div class="row">
+        <button type="button" class="btn btn-small" id="set-relays-reset" data-i18n="resetDefault"></button>
+        <button type="submit" class="btn btn-primary" data-i18n="save"></button>
+      </div>
+    </form>
+    <section class="dlg-section">
+      <h4 data-i18n="notifications"></h4>
+      <button type="button" class="btn btn-small" id="set-notify" data-i18n="enableNotifications"></button>
+    </section>
+    <section class="dlg-section">
+      <button type="button" class="btn btn-small" id="set-show-words" data-i18n="showWords"></button>
+      <ol class="word-grid" id="set-words" hidden></ol>
+    </section>
+    <section class="dlg-section row">
+      <button type="button" class="btn" id="set-logout" data-i18n="logout"></button>
+      <button type="button" class="btn btn-danger" id="set-wipe" data-i18n="wipe"></button>
+    </section>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" hidden></div>
+
+  <template id="tpl-chat-item">
+    <button type="button" class="chat-item">
+      <span class="avatar"></span>
+      <span class="chat-item-text">
+        <span class="chat-item-top"><strong class="chat-item-name"></strong><time class="chat-item-time"></time></span>
+        <span class="chat-item-bottom"><span class="chat-item-preview"></span><span class="badge" hidden></span></span>
+      </span>
+    </button>
+  </template>
+</body>
+</html>
