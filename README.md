@@ -101,7 +101,6 @@ Every path carries the same encrypted packet. The message stays in the outbox un
 device confirms it, so closing the tab, switching networks or losing power never loses it.
 
 ```mermaid
-%%{init: {'theme':'base','themeVariables':{'primaryColor':'#fbf9f4','primaryTextColor':'#1c1b17','primaryBorderColor':'#1c1b17','lineColor':'#5d594f','tertiaryColor':'#f3efe6'}}}%%
 flowchart LR
   E([Ece writes]) --> O[(Outbox<br/>on Ece's device)]
   O --> Q{Can Atahan<br/>be reached?}
@@ -119,7 +118,6 @@ flowchart LR
 ### When the other side is offline
 
 ```mermaid
-%%{init: {'theme':'base','themeVariables':{'primaryColor':'#fbf9f4','primaryTextColor':'#1c1b17','primaryBorderColor':'#1c1b17','lineColor':'#5d594f','actorBkg':'#fbf9f4','actorBorder':'#1c1b17','noteBkgColor':'#f3d8cf','noteBorderColor':'#c8381e'}}}%%
 sequenceDiagram
   participant E as Ece's phone
   participant R as Relays
@@ -140,7 +138,6 @@ After an earthquake the cell network is down. Ece's message reaches Atahan throu
 phone that happens to meet both of them. The neighbor can't read it; it only sees two public keys.
 
 ```mermaid
-%%{init: {'theme':'base','themeVariables':{'primaryColor':'#fbf9f4','primaryTextColor':'#1c1b17','primaryBorderColor':'#1c1b17','lineColor':'#5d594f'}}}%%
 flowchart LR
   E["Ece<br/>no internet"] -- "meet on a hotspot<br/>hands over packet" --> C["Neighbor's phone<br/>carries it, can't read it"]
   C -- "meets Atahan later<br/>Wi-Fi or QR" --> A["Atahan"]
