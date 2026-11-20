@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "start": "node scripts/serve.js",
-    "test": "node --test"
+    "test": "node --test",
+    "build": "node -e \"console.log('static app — nothing to build')\""
   },
   "engines": {
     "node": ">=20"

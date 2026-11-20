@@ -166,9 +166,10 @@ WebCrypto and the service worker all need a secure context.
 **Try two accounts on one computer:** open `http://localhost:8080` and `http://127.0.0.1:8080`
 (different origins keep separate storage), create an account in each and add one another by ID.
 
-**Deploy:** copy the folder to any static host, such as GitHub Pages, Netlify, Cloudflare Pages, S3 or a
-Raspberry Pi. Nothing runs on the server. `tests/`, `scripts/` and `vendor/entry-*.js` are not
-needed in production.
+**Deploy:** copy the folder to any static host, such as GitHub Pages, Netlify, Cloudflare Pages, Vercel, S3 or a
+Raspberry Pi. Nothing runs on the server — there is no compile step. On Vercel, import the repo as a
+static site (`vercel.json` already sets an empty build). `tests/`, `scripts/` and `vendor/entry-*.js`
+are not needed in production.
 
 ---
 
